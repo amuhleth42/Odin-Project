@@ -1,0 +1,5 @@
+cmd + b open/close left tab
+cmd + p search to open file
+cmd + shift + p  magic action searchbar, esc
+
+cmd + w close file 
