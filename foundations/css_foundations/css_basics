@@ -1,0 +1,179 @@
+# CSS Basics :
+
+css rule = selector + property + value
+
+## Selectors :
+
+* = universal selector
+
+### type selector
+div, p
+div {
+    color: blue;
+}
+
+### class selector
+<div class="alert-text">...
+.alert-text {
+    color: red;
+}
+
+### id selector
+<div id="title">...
+#title {
+    background-color: red;
+}
+
+### Grouping selector
+
+.read {
+  color: white;
+  background-color: black;
+  /* several unique declarations */
+}
+
+.unread {
+  color: white;
+  background-color: black;
+  /* several unique declarations */
+}
+
+shared declarations can be placed in shared rules
+
+.read,
+.unread {
+  color: white;
+  background-color: black;
+}
+
+.read {
+  /* several unique declarations */
+}
+
+.unread {
+  /* several unique declarations */
+}
+
+### Chaining Selectors
+
+<div>
+    <div class="subsection header">Latest Posts</div>
+    <p class="subsection preview">This is where a preview for a post might go.</p>
+</div>
+3 classes : subsection, header, preview
+.subsection.header {
+    color: red;
+}
+only affects tags with subsection and header classes
+
+you can also chain classes and ids
+.subsection#preview (if preview was an id)
+
+### Descendant Combinators
+
+<!-- index.html -->
+
+<div class="ancestor">
+    <!-- A -->
+    <div class="contents">
+      <!-- B -->
+      <div class="contents"><!-- C --></div>
+    </div>
+  </div>
+  
+<div class="contents"></div>
+<!-- D -->
+
+descendant combinator = selectors separated by a single space
+
+/* styles.css */
+
+.ancestor .contents {
+  /* some declarations */
+}
+
+select no matter how deep (B and C)
+
+.one .two .three .four
+possible to select as many ancestors as needed
+
+## Properties to get started with
+
+### color and background-color
+
+keyword, hex, rgb or hsl
+blue;
+0xff0000;
+rgb(100, 0, 127);
+hsl(15, 82%, 56%);  (hue, saturation, lightness)
+
++ a for transparency
+
+currentcolor go check seems cool
+
+### Typography and Text-Align
+
+font-family: "Times New Roman";
+font-family: "Times New Roman", sans-serif; (font-family-name, generic font-family)
+if "Times New Roman" not found -> sans-serif
+
+font-size: 20px;
+
+font-weight: boldness of the font
+keyword (bold) or number [1-1000], bold = 700
+
+text-align: right;
+text-align: left;
+text-align: center;
+text-align: justify;
+
+### Image Height and Width
+
+convention : auto for height, custom for Width
+img {
+    height: auto;
+    width: 500px;
+}
+
+## Adding CSS to HTML
+
+### External CSS
+
+the most common method, separated file
+
+<head>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+rel mandatory ! rel = relationship (<a>, <link>, <area>, <form>)
+
+### Internal CSS
+
+<head>
+    <style>
+      div {
+        color: white;
+        background-color: black;
+      }
+  
+      p {
+        color: red;
+      }
+    </style>
+</head>
+<body>
+    ...
+</body>
+
+not bad in fact, but works only for one page
+
+### Inline CSS
+
+<body>
+    <div style="color: white; background-color: black;">...</div>
+</body>
+
+trash
+there's no selectors ! (already selected)
+
+Any inline CSS will override the other two methods.
