@@ -16,10 +16,8 @@ function getComputerChoice () {
             return "scissors";
     }
 }
-
-function playRound (playerChoice, computerChoice) {
-
-    playerChoice = playerChoice.toLowerCase();
+function getResult(playerChoice, computerChoice) {
+    
     if (playerChoice == computerChoice)
         return "Same choice, nobody wins!";
     if (playerChoice == "rock" && computerChoice == "paper")
@@ -35,36 +33,40 @@ function playRound (playerChoice, computerChoice) {
     if (playerChoice == "scissors" && computerChoice == "paper")
         return "You win!";
 }
+function playRound (playerChoice, computerChoice) {
 
-function game () {
-    
-    let pScore = 0;
-    let cScore = 0;
+    let str = getResult(playerChoice, computerChoice);
+    if (str == "You win!")
+        pScore++;
+    else if (str == "You lose!")
+        cScore++;
 
-    while (pScore != 5 && cScore != 5) {
-
-        let pc = prompt("Enter your choice: ");
-        if (pc == undefined)
-        {
-            console.log("Please input a valid choice: rock, paper or scissors")
-            continue ;
-        }
-        let round = playRound(pc, getComputerChoice());
-        if (round == undefined)
-            console.log("Please input a valid choice: rock, paper or scissors")
-        else
-            console.log(round);
-        if (round == "You win!")
-            pScore++;
-        else if (round == "You lose!")
-            cScore++;
-        console.log(`Player score: ${pScore}, computer score: ${cScore}`)
-    }
-    if (pScore == 5)
-        console.log("You won the game!")
-    else
-        console.log("You lost the game!")
-
+    let ps = document.querySelector("#ps");
+    ps.textContent = pScore;
+    let cs = document.querySelector("#cs");
+    cs.textContent = cScore;
+    let res = document.querySelector("#res");
+    res.textContent = str;
+    let pchoice = document.querySelector("#pchoice");
+    pchoice.textContent = playerChoice;
+    let cchoice = document.querySelector("#cchoice");
+    cchoice.textContent = computerChoice;
 }
-console.log("Welcome to Rock Paper Scissors!")
-game();
+
+let pScore = 0;
+let cScore = 0;
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => {
+    playRound("rock", getComputerChoice());
+});
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => {
+    console.log("paper");
+    playRound("paper", getComputerChoice());
+});
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => {
+    console.log("scissors");
+    playRound("scissors", getComputerChoice());
+});

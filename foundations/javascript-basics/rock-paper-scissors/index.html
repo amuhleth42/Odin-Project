@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="header">
+        <div class="title">Rock Paper Scissors</div>
+
+    </div>
     
+    <div class="body">
+        
+        <div class="round">
+            <p class="choose">Choose your action!</p>
+            <div class="container">
+                <button class="button" id="rock">Rock</button>
+                <button class="button" id="paper">Paper</button>
+                <button class="button" id="scissors">Scissors</button>
+            </div>
+            <div class="roundRes">
+                <div class="choices">
+                    <p id="pchoice">...</p>
+                    <p>vs</p>
+                    <p id="cchoice">...</p>
+                </div>
+                <p id="res"></p>
+            </div>
+        </div>
+        <div class="scores">
+            <p>Scores</p>
+            <div class="scont">
+                <div class="side">
+                    <div class="challengers">Player</div>
+                    <div class="s" id="ps">0</div>
+                </div>
+                <div>:</div>
+                <div class="side">
+                    <div class="challengers">Computer</div>
+                    <div class="s" id="cs">0</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="blank"></div>
+    
+    <div class="footer">
+        <p>by amuhleth, Project from The Odin Project Foundation Course</p>
+
+    </div>
 </body>
 </html>

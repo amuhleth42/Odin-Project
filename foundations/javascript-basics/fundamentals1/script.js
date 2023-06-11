@@ -16,9 +16,14 @@ function lastLetter (str) {
     return tab[str.length - 1];
 };
 
-let s1 = "sAluT mOn Gars";
-console.log(s1);
-s1 = capitalize(s1);
-console.log(s1);
-console.log(s1.length);
-console.log(lastLetter(s1))
+//const header = document.querySelector('#header');
+//console.dir(header);
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', function (e) {
+    e.target.style.background = 'blue';
+  });
+
+const btn_cool = document.querySelector('#btn_cool');
+btn_cool.addEventListener('click', () => {
+  alert("Hello World");
+});
